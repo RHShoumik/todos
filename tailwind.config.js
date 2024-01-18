@@ -1,6 +1,14 @@
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
+    './src/assets/**/*.{js,ts,jsx,tsx,mdx,png}',
+    './src/common/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/contexts/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/hooks/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/layouts/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/styles/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/utils/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   darkMode: 'class',
   theme: {
@@ -8,7 +16,7 @@ module.exports = {
       colors: {
         // Custom Color Palette
         dark: {
-          body: '#404258',
+          'body': '#404258',
           100: '#dbeafe',
           200: '#bfdbfe',
           300: '#93c5fd',
@@ -20,7 +28,7 @@ module.exports = {
           900: '#1e3a8a',
         },
         light: {
-          body: '#F0F2F5',
+          'body': '#F0F2F5',
           100: '#ffe9e4',
           200: '#ffb8a8',
           300: '#ff8c78',

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer, ReactNode } from 'react';
+import React, { createContext, useContext, useReducer, ReactNode, useEffect } from 'react';
 import { taskList } from "@/common/conts/demoTasksList.ts"
 
 // Define TypeScript types
@@ -7,7 +7,7 @@ interface Task {
     name: string;
     description: string;
     priorityId: number;
-    completedStatus: number;
+    currentStatus: number;
 }
 
 interface TodoState {
@@ -67,7 +67,16 @@ const todoReducer = (state: TodoState, action: TodoAction): TodoState => {
 
 // TodoProvider component
 export const TodoProvider: React.FC<TodoProviderProps> = ({ children }) => {
-    const [state, dispatch] = useReducer(todoReducer, initialState);
+    // Attempt to get tasks from localStorage, use the initial state if not available
+    const storedTasks = localStorage.getItem('tasks');
+    const initialTasks = storedTasks ? JSON.parse(storedTasks) : initialState.taskList;
+
+    const [state, dispatch] = useReducer(todoReducer, { taskList: initialTasks });
+
+    // Update localStorage whenever the taskList changes
+    useEffect(() => {
+        localStorage.setItem('tasks', JSON.stringify(state.taskList));
+    }, [state.taskList]);
 
     return (
         <TodoContext.Provider value={{ state, dispatch }}>

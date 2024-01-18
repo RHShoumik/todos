@@ -1,4 +1,4 @@
-import TodoCard from '@/components/card/TodoCard';
+import TodoCard from '@/components/card';
 import { useTodo } from '@/contexts/TodoContex';
 import React from 'react';
 
@@ -11,7 +11,7 @@ const TodoApp = () => {
             name: 'New Task',
             description: 'Description of new task',
             priorityId: 1,
-            completedStatus: 1,
+            currentStatus: 1,
         };
 
         dispatch({ type: 'ADD_TASK', task: newTask });
@@ -22,7 +22,7 @@ const TodoApp = () => {
             name: 'Updated Task',
             description: 'Updated description',
             priorityId: 2,
-            completedStatus: 2,
+            currentStatus: 2,
         };
 
         dispatch({ type: 'EDIT_TASK', taskId, updatedTask });
@@ -35,8 +35,7 @@ const TodoApp = () => {
     console.log("state.taskList", state.taskList)
 
     return (
-        <div>
-
+        <div className='py-4'>
             {state.taskList.map((task, index) => (
                 <TodoCard task={task} />
             ))}
