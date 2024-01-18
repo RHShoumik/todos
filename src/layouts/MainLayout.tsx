@@ -1,6 +1,5 @@
 import Header from '@/components/Header'
 import TodoApp from '@/pages/Todo'
-import React from 'react'
 
 const MainLayout = () => {
     return (

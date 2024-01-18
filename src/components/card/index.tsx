@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import CardWrapper from './CardWrapper'
 import Typography from '../Typography'
 import { prioritySelection } from '@/utils/taskStateCalculation'
 import StatusButton from './StatusButton'
-import { useTodo } from '@/contexts/TodoContex'
-import DeleteIcon from '@/assets/DeleteIcon'
 import DeleteItem from './DeleteItem'
-import EditIcon from '@/assets/EditIcon'
 import EditItem from './EditItem'
 
 interface TaskProps {

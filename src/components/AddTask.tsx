@@ -48,8 +48,8 @@ const Addtask = () => {
 
     };
 
-    const handleChangeName = (e) => {
-        setTaskName(e.target.value)
+    const handleChangeName = (value: string) => {
+        setTaskName(value)
     }
     const { theme, toggleTheme } = useContext(ThemeContext);
 
@@ -84,7 +84,7 @@ const Addtask = () => {
                                 id="firstName"
                                 name="firstName"
                                 value={taskName}
-                                onChange={(e) => handleChangeName(e)}
+                                onChange={(e) => handleChangeName(e.target.value)}
                                 className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-500"
                             />
                         </div>
