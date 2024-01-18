@@ -73,7 +73,7 @@ const Addtask = () => {
             </div>
             <Modal isOpen={isModalOpen} onClose={closeModal} closeIcon={true}>
                 <div className="flex flex-col gap-5 mx-3 my-8">
-                    <Typography size="text-xl" fontWeight="font-semibold">Edit Task </Typography>
+                    <Typography size="text-xl" fontWeight="font-semibold">Add Task </Typography>
                     <form>
                         <div className="mb-4">
                             <label htmlFor="taskName" className="text-sm block text-gray-500 mb-2">
