@@ -5,7 +5,6 @@ import { useTodo } from '@/contexts/TodoContex';
 const TodoApp = () => {
     const { state } = useTodo()
 
-    console.log("state.taskList", state.taskList)
 
     return (
         <div>
