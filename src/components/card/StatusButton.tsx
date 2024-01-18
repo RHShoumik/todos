@@ -12,7 +12,7 @@ interface CurrentStatusProps {
   }
 }
 const StatusButton = ({ task }: CurrentStatusProps) => {
-  const { state, dispatch } = useTodo();
+  const { dispatch } = useTodo();
 
   const status = taskStatus(task.currentStatus)
   const handleEditTask = (taskId: number) => {

@@ -43,7 +43,7 @@ const todoReducer = (state: TodoState, action: TodoAction): TodoState => {
         case 'ADD_TASK':
             return {
                 ...state,
-                taskList: [...state.taskList, action.task],
+                taskList: [action.task, ...state.taskList],
             };
 
         case 'EDIT_TASK':
@@ -67,13 +67,11 @@ const todoReducer = (state: TodoState, action: TodoAction): TodoState => {
 
 // TodoProvider component
 export const TodoProvider: React.FC<TodoProviderProps> = ({ children }) => {
-    // Attempt to get tasks from localStorage, use the initial state if not available
     const storedTasks = localStorage.getItem('tasks');
     const initialTasks = storedTasks ? JSON.parse(storedTasks) : initialState.taskList;
 
     const [state, dispatch] = useReducer(todoReducer, { taskList: initialTasks });
 
-    // Update localStorage whenever the taskList changes
     useEffect(() => {
         localStorage.setItem('tasks', JSON.stringify(state.taskList));
     }, [state.taskList]);
@@ -85,11 +83,10 @@ export const TodoProvider: React.FC<TodoProviderProps> = ({ children }) => {
     );
 };
 
-// Custom hook to use the context
 export const useTodo = (): TodoContextType => {
     const context = useContext(TodoContext);
     if (!context) {
-        throw new Error('useTodo must be used within a TodoProvider');
+        throw new Error('Error happend in TODO Contex');
     }
     return context;
 };

@@ -16,7 +16,8 @@ module.exports = {
       colors: {
         // Custom Color Palette
         dark: {
-          'body': '#404258',
+          'body': '#383E56',
+          'card': '#404258',
           100: '#dbeafe',
           200: '#bfdbfe',
           300: '#93c5fd',
@@ -29,6 +30,7 @@ module.exports = {
         },
         light: {
           'body': '#F0F2F5',
+          'card': '#fff',
           100: '#ffe9e4',
           200: '#ffb8a8',
           300: '#ff8c78',
@@ -47,6 +49,9 @@ module.exports = {
         center: true,
         padding: "1rem",
       },
+      zIndex: {
+        '100': '100',
+      }
     },
     screens: {
       "sm": "420px",

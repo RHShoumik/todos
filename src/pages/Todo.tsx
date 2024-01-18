@@ -1,52 +1,22 @@
+import Addtask from '@/components/AddTask';
 import TodoCard from '@/components/card';
 import { useTodo } from '@/contexts/TodoContex';
-import React from 'react';
 
 const TodoApp = () => {
-    const { state, dispatch } = useTodo();
-
-    const handleAddTask = () => {
-        const newTask = {
-            id: state.taskList.length + 1,
-            name: 'New Task',
-            description: 'Description of new task',
-            priorityId: 1,
-            currentStatus: 1,
-        };
-
-        dispatch({ type: 'ADD_TASK', task: newTask });
-    };
-
-    const handleEditTask = (taskId: number) => {
-        const updatedTask = {
-            name: 'Updated Task',
-            description: 'Updated description',
-            priorityId: 2,
-            currentStatus: 2,
-        };
-
-        dispatch({ type: 'EDIT_TASK', taskId, updatedTask });
-    };
-
-    const handleDeleteTask = (taskId: number) => {
-        dispatch({ type: 'DELETE_TASK', taskId });
-    };
+    const { state } = useTodo()
 
     console.log("state.taskList", state.taskList)
 
     return (
-        <div className='py-4'>
-            {state.taskList.map((task, index) => (
-                <TodoCard task={task} />
-            ))}
+        <div>
+            <Addtask />
+            <div className='py-4'>
+                {state.taskList.map((task) => (
+                    <TodoCard key={task.id} task={task} />
+                ))}
+            </div>
         </div>
     );
 };
 
 export default TodoApp;
-{/* <button onClick={handleAddTask}>Add Task</button> */ }
-//   <li key={task.id}>
-//     <div>{task.name}</div>
-//     <button onClick={() => handleEditTask(task.id)}>Edit</button>
-//     <button onClick={() => handleDeleteTask(task.id)}>Delete</button>
-//   </li>
